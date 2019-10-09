@@ -13,7 +13,7 @@ public class Repository {
 
 
 
-    // mens list
+    // mens.html list
 private  static final List<Product> productlist = Arrays.asList(
         new Product( "Multicoloured T-Shirts" , 1, "/images/a5.png" , 01, 129 ,"slim fit"   ),
         new Product( "T-Shirts" , 1, "/images/a1.png" , 01, 2999,"slim fit"   ),

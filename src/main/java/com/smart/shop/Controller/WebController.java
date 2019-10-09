@@ -31,8 +31,7 @@ public class WebController {
     @Autowired
     private Repository repository;
 
-    @Autowired
-    FClient fClient;
+
 
 
 
@@ -40,16 +39,16 @@ public class WebController {
     public String index(ModelMap Map,Model model){
 
 
-//        List<Product> Mens = repository.Mensproduct();
-//        Map.addAttribute("Mens" , Mens);
-//
-//        List<Product> women = repository.Womensproduct();
-//        Map.addAttribute("womenpro" , women);
-//
-//        List<Product> Access = repository.getallAcces();
-//        Map.addAttribute("Accessories" , Access);
+        List<Product> Mens = repository.Mensproduct();
+        Map.addAttribute("Mens" , Mens);
 
-        ArrayList<Categories> categories = fClient.getProducts();
+        List<Product> women = repository.Womensproduct();
+        Map.addAttribute("womenpro" , women);
+
+        List<Product> Access = repository.getallAcces();
+        Map.addAttribute("Accessories" , Access);
+
+        List<Categories> categories = repository.getallcate();
         Map.addAttribute("Categor",categories);
 
         model.addAttribute("user",new User());
@@ -97,10 +96,10 @@ public class WebController {
 
 
 
-     @GetMapping("/contact")
+     @GetMapping("/mens")
     public String Contact()
     {
-        return "contact";
+        return "mens";
     }
 
 
@@ -108,7 +107,7 @@ public class WebController {
 
 
 
-    @GetMapping("/cart")
+    @GetMapping("checkout")
     public String hell(){
 
         return "checkout";
