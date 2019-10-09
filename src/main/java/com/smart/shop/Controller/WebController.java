@@ -30,7 +30,7 @@ public class WebController {
 
     @Autowired
     private Repository repository;
-
+    private FClient fClient;
 
 
 
@@ -39,7 +39,7 @@ public class WebController {
     public String index(ModelMap Map,Model model){
 
 
-        List<Product> Mens = repository.Mensproduct();
+        List<Categories> Mens = repository.productlist();
         Map.addAttribute("Mens" , Mens);
 
         List<Product> women = repository.Womensproduct();
@@ -47,6 +47,7 @@ public class WebController {
 
         List<Product> Access = repository.getallAcces();
         Map.addAttribute("Accessories" , Access);
+
 
         List<Categories> categories = repository.getallcate();
         Map.addAttribute("Categor",categories);
@@ -60,6 +61,8 @@ public class WebController {
  @PostMapping("/single")
     public String showMethod(@RequestParam(name="image" , required=false) String image,Integer price,String name, ModelMap modelmap)
  {
+
+     System.out.println(image);
      List<Product> select = Arrays.asList( new Product( name , 1, image
         , 01, price,"slim fit"   ));
 
@@ -87,7 +90,11 @@ public class WebController {
 
     }
 
+    @GetMapping("electronics")
+    public String electricity(){
 
+        return "electronics";
+    }
 
 
 
@@ -97,8 +104,13 @@ public class WebController {
 
 
      @GetMapping("/mens")
-    public String Contact()
+    public String Contact(ModelMap modelMap)
     {
+
+
+        List<Categories> Mens = repository.productlist();
+        modelMap.addAttribute("Mens" , Mens);
+
         return "mens";
     }
 
