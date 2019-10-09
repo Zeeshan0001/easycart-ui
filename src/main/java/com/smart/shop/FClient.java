@@ -14,14 +14,17 @@ public interface FClient {
     @RequestMapping(value = "/msg1",method = RequestMethod.GET)
     public String getMsg();
 
-    @RequestMapping(value = "/getAllProducts",method = RequestMethod.GET)
+    @RequestMapping(value = "/product/getAllProducts",method = RequestMethod.GET)
     public ArrayList<Categories> getProducts();
 
     @RequestMapping(value = "/getProductWithId/",method = RequestMethod.GET)
     public Categories getProductWithId(@RequestParam("id") String id);
 
-//    @RequestMapping(value = "/getProductWithCatId/",method = RequestMethod.GET)
-//    public ArrayList<Product> getProductWithCatId(@RequestParam("cat_id") String categoryId);
+    @RequestMapping(value = "product/getcategories/",method = RequestMethod.GET)
+    public ArrayList<Categories> getCategories();
+
+    @RequestMapping(value = "product/getsubcategories/",method = RequestMethod.GET)
+    public ArrayList<Categories> getSubCategories(@RequestParam("parent_id") String parent_id);
 //
 //    @RequestMapping(value = "/searchProduct/",method = RequestMethod.GET)
 //    public ArrayList<Product> searchProduct(@RequestParam("query") String query);
