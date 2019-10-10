@@ -1,24 +1,19 @@
 package com.smart.shop.Controller;
 
 
-import com.smart.shop.FClient;
-import com.smart.shop.Pojo.Categories;
 import com.smart.shop.Pojo.Product;
-import com.smart.shop.Pojo.Signup;
+import com.smart.shop.Pojo.Dumy;
 import com.smart.shop.Pojo.User;
 import com.smart.shop.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,17 +34,17 @@ public class WebController {
     public String index(ModelMap Map,Model model){
 
 
-        List<Categories> Mens = repository.productlist();
+        List<Product> Mens = repository.productlist();
         Map.addAttribute("Mens" , Mens);
 
-        List<Product> women = repository.Womensproduct();
+        List<Dumy> women = repository.Womensproduct();
         Map.addAttribute("womenpro" , women);
 
-        List<Product> Access = repository.getallAcces();
+        List<Dumy> Access = repository.getallAcces();
         Map.addAttribute("Accessories" , Access);
 
 
-        List<Categories> categories = repository.getCategories();
+        List<Product> categories = repository.getCategories();
         Map.addAttribute("Categor",categories);
         Map.addAttribute("repository",repository);
 
@@ -64,7 +59,7 @@ public class WebController {
  {
 
      System.out.println(image);
-     List<Product> select = Arrays.asList( new Product( name , 1, image
+     List<Dumy> select = Arrays.asList( new Dumy( name , 1, image
         , 01, price,"slim fit"   ));
 
      modelmap.addAttribute("selected",select);
@@ -103,7 +98,7 @@ public class WebController {
     {
 
 
-        List<Categories> Mens = repository.productlist();
+        List<Product> Mens = repository.productlist();
         modelMap.addAttribute("Mens" , Mens);
 
         return "mens";

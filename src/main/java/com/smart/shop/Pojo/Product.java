@@ -1,74 +1,95 @@
 package com.smart.shop.Pojo;
 
+public class Product {
+    String id;
+    String productName;
+    String parentId;
+    int price;
+    String description;
 
-import java.io.Serializable;
+    String typeId;
+    String iconId;
+    String promotionId;
+    String totalProducts;
+    String inStockProducts;
 
-public class Product implements Serializable{
-
-    private String Name;
-    private Integer Id ;
-    private String Img_src;
-    private   Integer  Category_id;
-    private Integer Price;
-    private String Discription;
-
-    public Product(String name, Integer id, String img_src, Integer category_id, Integer price, String discription) {
-        Name = name;
-        Id = id;
-        Img_src = img_src;
-        Category_id = category_id;
-        Price = price;
-        Discription = discription;
+    public String getId() {
+        return id;
     }
 
-    public String getImg_src() {
-        return Img_src;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setImg_src(String img_src) {
-        Img_src = img_src;
+    public String getProductName() {
+        return productName;
     }
 
-    public Integer getCategory_id() {
-        return Category_id;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
-    public void setCategory_id(Integer category_id) {
-        Category_id = category_id;
+    public String getParentId() {
+        return parentId;
     }
 
-    public Integer getPrice() {
-        return Price;
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
     }
 
-    public void setPrice(Integer price) {
-        this.Price = price;
+    public int getPrice() {
+        return price;
     }
 
-    public String getDiscription() {
-        return Discription;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
-    public void setDiscription(String discription) {
-        Discription = discription;
+    public String getDescription() {
+        return description;
     }
 
-
-
-    public String getName() {
-        return Name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setName(String name) {
-        this.Name = name;
+    public String getTypeId() {
+        return typeId;
     }
 
-    public Integer getId() {
-        return Id;
+    public void setTypeId(String typeId) {
+        this.typeId = typeId;
     }
 
-    public void setId(Integer id) {
-        Id = id;
+    public String getIconId() {
+        return iconId;
+    }
+
+    public void setIconId(String iconId) {
+        this.iconId = iconId;
+    }
+
+    public String getPromotionId() {
+        return promotionId;
+    }
+
+    public void setPromotionId(String promotionId) {
+        this.promotionId = promotionId;
+    }
+
+    public String getTotalProducts() {
+        return totalProducts;
+    }
+
+    public void setTotalProducts(String totalProducts) {
+        this.totalProducts = totalProducts;
+    }
+
+    public String getInStockProducts() {
+        return inStockProducts;
+    }
+
+    public void setInStockProducts(String inStockProducts) {
+        this.inStockProducts = inStockProducts;
     }
 }
-

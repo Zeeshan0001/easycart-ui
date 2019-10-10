@@ -1,7 +1,7 @@
 package com.smart.shop;
 
-import com.smart.shop.Pojo.Categories;
 import com.smart.shop.Pojo.Product;
+import com.smart.shop.Pojo.Dumy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +17,9 @@ public class Repository {
     FClient fClient;
     // mens list
 
-public   ArrayList<Categories> productlist(){
-        ArrayList<Categories> categories = new ArrayList<>();
-        for(Categories category :fClient.getProducts()){
+public   ArrayList<Product> productlist(){
+        ArrayList<Product> categories = new ArrayList<>();
+        for(Product category :fClient.getProducts()){
         categories.add(category);
 
     }
@@ -32,14 +32,14 @@ public   ArrayList<Categories> productlist(){
 
 
     // womens list
-    private  static final List<Product> Womensproducts = Arrays.asList(
-           new Product( "Trouser" , 1, "/images/a6.png" , 01, 200,"slim fit"   ),
-            new Product( "Trouser" , 1, "/images/a5.png" , 01, 200,"slim fit"   ),
-            new Product( "Trouser" , 1, "/images/a4.png" , 01, 200,"slim fit"   ),
-            new Product( "Trouser" , 1, "/images/a3.png" , 01, 200,"slim fit"   )
+    private  static final List<Dumy> Womensproducts = Arrays.asList(
+           new Dumy( "Trouser" , 1, "/images/a6.png" , 01, 200,"slim fit"   ),
+            new Dumy( "Trouser" , 1, "/images/a5.png" , 01, 200,"slim fit"   ),
+            new Dumy( "Trouser" , 1, "/images/a4.png" , 01, 200,"slim fit"   ),
+            new Dumy( "Trouser" , 1, "/images/a3.png" , 01, 200,"slim fit"   )
     ) ;
 
-    public static List<Product> Womensproduct(){
+    public static List<Dumy> Womensproduct(){
         return Womensproducts;
     }
 
@@ -49,33 +49,33 @@ public   ArrayList<Categories> productlist(){
 
 
 
-    private static   final List<Product> Accessories = Arrays.asList(
+    private static   final List<Dumy> Accessories = Arrays.asList(
 
-            new Product( "Trouser" , 1, "/images/a8.png" , 01, 200,"slim fit"   ),
-            new Product( "Trouser" , 1, "/images/a1.png" , 01, 200,"slim fit"   ),
-            new Product( "Trouser" , 1, "/images/a2.png" , 01, 200,"slim fit"   ),
-            new Product( "Trouser" , 1, "/images/a3.png" , 01, 200,"slim fit"   )
+            new Dumy( "Trouser" , 1, "/images/a8.png" , 01, 200,"slim fit"   ),
+            new Dumy( "Trouser" , 1, "/images/a1.png" , 01, 200,"slim fit"   ),
+            new Dumy( "Trouser" , 1, "/images/a2.png" , 01, 200,"slim fit"   ),
+            new Dumy( "Trouser" , 1, "/images/a3.png" , 01, 200,"slim fit"   )
 
     );
 
-    public static List<Product> getallAcces(){
+    public static List<Dumy> getallAcces(){
         return Accessories;
     }
 
 //    Categories
 
-    public ArrayList<Categories> getCategories(){
-        ArrayList<Categories> categories=new ArrayList<>();
-        for (Categories category : fClient.getCategories()) {
+    public ArrayList<Product> getCategories(){
+        ArrayList<Product> categories=new ArrayList<>();
+        for (Product category : fClient.getCategories()) {
             categories.add(category);
         }
         return categories;
     }
 
 
-    public ArrayList<Categories> getSubCategories(String parent_id){
-        ArrayList<Categories> subCategories=new ArrayList<>();
-        for (Categories category : fClient.getSubCategories(parent_id)) {
+    public ArrayList<Product> getSubCategories(String parent_id){
+        ArrayList<Product> subCategories=new ArrayList<>();
+        for (Product category : fClient.getSubCategories(parent_id)) {
             subCategories.add(category);
         }
         return subCategories;

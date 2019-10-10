@@ -1,6 +1,5 @@
 package com.smart.shop;
 
-import com.smart.shop.Pojo.Categories;
 import com.smart.shop.Pojo.Product;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,16 +14,16 @@ public interface FClient {
     public String getMsg();
 
     @RequestMapping(value = "/product/getAllProducts",method = RequestMethod.GET)
-    public ArrayList<Categories> getProducts();
+    public ArrayList<Product> getProducts();
 
     @RequestMapping(value = "/getProductWithId/",method = RequestMethod.GET)
-    public Categories getProductWithId(@RequestParam("id") String id);
+    public Product getProductWithId(@RequestParam("id") String id);
 
     @RequestMapping(value = "product/getcategories/",method = RequestMethod.GET)
-    public ArrayList<Categories> getCategories();
+    public ArrayList<Product> getCategories();
 
     @RequestMapping(value = "product/getsubcategories/",method = RequestMethod.GET)
-    public ArrayList<Categories> getSubCategories(@RequestParam("parent_id") String parent_id);
+    public ArrayList<Product> getSubCategories(@RequestParam("parent_id") String parent_id);
 //
 //    @RequestMapping(value = "/searchProduct/",method = RequestMethod.GET)
 //    public ArrayList<Product> searchProduct(@RequestParam("query") String query);
