@@ -12,11 +12,10 @@ import java.util.List;
 @Service
 public class Repository {
 
-@Autowired
-FClient fClient;
 
-
-    // mens.html list
+    @Autowired
+    FClient fClient;
+    // mens list
 
 public   ArrayList<Categories> productlist(){
         ArrayList<Categories> categories = new ArrayList<>();
@@ -65,17 +64,21 @@ public   ArrayList<Categories> productlist(){
 
 //    Categories
 
-
-    public ArrayList<Categories> getallcate()
-    {
+    public ArrayList<Categories> getCategories(){
         ArrayList<Categories> categories=new ArrayList<>();
-        for (Categories category : fClient.getProducts()) {
+        for (Categories category : fClient.getCategories()) {
             categories.add(category);
-//            logger.info(category.getProductName());
         }
-
-
         return categories;
+    }
+
+
+    public ArrayList<Categories> getSubCategories(String parent_id){
+        ArrayList<Categories> subCategories=new ArrayList<>();
+        for (Categories category : fClient.getSubCategories(parent_id)) {
+            subCategories.add(category);
+        }
+        return subCategories;
     }
 
 

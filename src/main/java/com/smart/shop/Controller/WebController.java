@@ -49,8 +49,9 @@ public class WebController {
         Map.addAttribute("Accessories" , Access);
 
 
-        List<Categories> categories = repository.getallcate();
+        List<Categories> categories = repository.getCategories();
         Map.addAttribute("Categor",categories);
+        Map.addAttribute("repository",repository);
 
         model.addAttribute("user",new User());
 
