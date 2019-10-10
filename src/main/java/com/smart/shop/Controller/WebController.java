@@ -30,7 +30,7 @@ public class WebController {
 
     @Autowired
     private Repository repository;
-    private FClient fClient;
+
 
 
 
@@ -97,12 +97,6 @@ public class WebController {
     }
 
 
-
-
-
-
-
-
      @GetMapping("/mens")
     public String Contact(ModelMap modelMap)
     {
@@ -115,16 +109,16 @@ public class WebController {
     }
 
 
-
-
-
-
     @GetMapping("checkout")
     public String hell(){
 
         return "checkout";
     }
+    @GetMapping("contact")
+    public String contact(){
 
+        return "contact";
+    }
 
 }
 
