@@ -1,10 +1,10 @@
 package com.smart.shop.Controller;
 
-
 import com.smart.shop.Pojo.Product;
 import com.smart.shop.Pojo.Dumy;
 import com.smart.shop.Pojo.User;
 import com.smart.shop.Repository;
+import feign.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +12,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import rx.functions.Actions;
 
 import javax.validation.Valid;
 import java.util.Arrays;
@@ -35,6 +36,7 @@ public class WebController {
 
 
         List<Product> Mens = repository.productlist();
+
         Map.addAttribute("Mens" , Mens);
 
         List<Dumy> women = repository.Womensproduct();
@@ -58,7 +60,6 @@ public class WebController {
     public String showMethod(@RequestParam(name="image" , required=false) String image,Integer price,String name, ModelMap modelmap)
  {
 
-     System.out.println(image);
      List<Dumy> select = Arrays.asList( new Dumy( name , 1, image
         , 01, price,"slim fit"   ));
 
@@ -105,8 +106,21 @@ public class WebController {
     }
 
 
-    @GetMapping("checkout")
-    public String hell(){
+    @PostMapping("/checkout")
+    public String cart(@RequestParam(name="image" , required=false) String iconid,Integer price,String name,String quantity,String userid, ModelMap modelmap){
+
+
+        System.out.println(iconid);
+
+        System.out.println(price);
+        System.out.println(name);
+        System.out.println(quantity);
+        System.out.println(userid);
+
+
+
+
+
 
         return "checkout";
     }
@@ -115,6 +129,7 @@ public class WebController {
 
         return "contact";
     }
+
 
 }
 
