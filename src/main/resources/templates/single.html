@@ -212,7 +212,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 <div class="single">
-	<div class="container"  th:each="Product : ${selected}" >
+	<div class="container"  th:each="Product : ${product}" >
 
 		<div class="col-md-6 single-right-left animated wow slideInUp animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInUp;">
 			<div class="grid images_3_of_2">
@@ -231,7 +231,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--					<ul class="slides">-->
 <!--						<li data-thumb="images/d2.jpg"  >-->
-							<div class="thumb-image"> <img th:src="${Product.img_src}" data-imagezoom="true" class="img-responsive"> </div>
+							<div class="thumb-image"> <img th:src="${Product.iconXXLarge}" data-imagezoom="true" class="img-responsive"> </div>
 <!--						</li>-->
 <!--						<li data-thumb="images/d1.jpg">-->
 <!--							<div class="thumb-image"> <img src="images/d1.jpg" data-imagezoom="true" class="img-responsive"> </div>-->
@@ -250,7 +250,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--		name+price-->
 		<div class="col-md-6 single-right-left simpleCart_shelfItem animated wow slideInRight animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: slideInRight;">
-					<h3 th:text="${Product.name}"></h3>
+					<h3 th:text="${Product.productName}"></h3>
 					<p><span class="item_price" th:text="${Product.price}+' $'" ></span> <del>- $900</del></p>
 					<div class="rating1">
 						<span class="starRating">

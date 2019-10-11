@@ -1,5 +1,6 @@
 package com.smart.shop.Pojo;
 
+
 public class Product {
     String id;
     String productName;
@@ -13,45 +14,81 @@ public class Product {
     String totalProducts;
     String inStockProducts;
 
-    public String getId() {
-        return id;
+    String parentName;
+    String typeName;
+    String iconSmall;
+    String iconMedium;
+    String iconLarge;
+    String iconXLarge;
+    String iconXXLarge;
+    String promotionName;
+
+
+    public String getParentName() {
+        return parentName;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
     }
 
-    public String getProductName() {
-        return productName;
+    public String getTypeName() {
+        return typeName;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 
-    public String getParentId() {
-        return parentId;
+    public String getIconSmall() {
+        return iconSmall;
     }
 
-    public void setParentId(String parentId) {
-        this.parentId = parentId;
+    public void setIconSmall(String iconSmall) {
+        this.iconSmall = iconSmall;
     }
 
-    public int getPrice() {
-        return price;
+    public String getIconMedium() {
+        return iconMedium;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setIconMedium(String iconMedium) {
+        this.iconMedium = iconMedium;
     }
 
-    public String getDescription() {
-        return description;
+    public String getIconLarge() {
+        return iconLarge;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setIconLarge(String iconLarge) {
+        this.iconLarge = iconLarge;
     }
+
+    public String getIconXLarge() {
+        return iconXLarge;
+    }
+
+    public void setIconXLarge(String iconXLarge) {
+        this.iconXLarge = iconXLarge;
+    }
+
+    public String getIconXXLarge() {
+        return iconXXLarge;
+    }
+
+    public void setIconXXLarge(String iconXXLarge) {
+        this.iconXXLarge = iconXXLarge;
+    }
+
+    public String getPromotionName() {
+        return promotionName;
+    }
+
+    public void setPromotionName(String promotionName) {
+        this.promotionName = promotionName;
+    }
+
+
 
     public String getTypeId() {
         return typeId;
@@ -91,5 +128,52 @@ public class Product {
 
     public void setInStockProducts(String inStockProducts) {
         this.inStockProducts = inStockProducts;
+    }
+
+
+
+    public String getId() {
+        return id;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public String getParentId() {
+        return parentId;
+    }
+
+
+
+    public int getPrice() {
+        return price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+
+    public void setParentId(String parentId) {
+        this.parentId = parentId;
+    }
+
+
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

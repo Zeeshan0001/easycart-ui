@@ -16,8 +16,11 @@ public interface FClient {
     @RequestMapping(value = "/product/getAllProducts",method = RequestMethod.GET)
     public ArrayList<Product> getProducts();
 
-    @RequestMapping(value = "/getProductWithId/",method = RequestMethod.GET)
+    @RequestMapping(value = "product/getproductdetail/",method = RequestMethod.GET)
     public Product getProductWithId(@RequestParam("id") String id);
+
+    @RequestMapping(value = "product/getproductwithcatid/",method = RequestMethod.GET)
+    public ArrayList<Product> getProductWithCatId(@RequestParam("id") String id);
 
     @RequestMapping(value = "product/getcategories/",method = RequestMethod.GET)
     public ArrayList<Product> getCategories();

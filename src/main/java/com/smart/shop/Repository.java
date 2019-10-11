@@ -1,7 +1,7 @@
 package com.smart.shop;
 
-import com.smart.shop.Pojo.Product;
 import com.smart.shop.Pojo.Dumy;
+import com.smart.shop.Pojo.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -80,6 +80,21 @@ public   ArrayList<Product> productlist(){
         }
         return subCategories;
     }
+
+    public ArrayList<Product> getProductwithCatId(String id){
+        ArrayList<Product> subCategories=new ArrayList<>();
+        for (Product category : fClient.getProductWithCatId(id)) {
+            subCategories.add(category);
+        }
+        return subCategories;
+    }
+
+    public Product getProductId(String id){
+
+        Product product= fClient.getProductWithId(id);
+        return product;
+    }
+
 
 
 

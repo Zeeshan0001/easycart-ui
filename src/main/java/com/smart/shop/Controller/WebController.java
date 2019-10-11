@@ -34,14 +34,14 @@ public class WebController {
     public String index(ModelMap Map,Model model){
 
 
-        List<Product> Mens = repository.productlist();
+        List<Product> Mens = repository.getProductwithCatId("2");
         Map.addAttribute("Mens" , Mens);
 
-        List<Dumy> women = repository.Womensproduct();
+        List<Product> women = repository.getProductwithCatId("7");
         Map.addAttribute("womenpro" , women);
 
-        List<Dumy> Access = repository.getallAcces();
-        Map.addAttribute("Accessories" , Access);
+        List<Product> prod = repository.getProductwithCatId("2");
+        Map.addAttribute("mobile" , prod);
 
 
         List<Product> categories = repository.getCategories();
@@ -67,6 +67,16 @@ public class WebController {
      return "single";
  }
 
+    @GetMapping("/item")
+    public String showItem(@RequestParam(name="id" , required=false) String id, ModelMap modelmap)
+    {
+        Product product=repository.getProductId(id);
+
+        modelmap.addAttribute("product",product);
+
+        return "single";
+    }
+
  @PostMapping("/login")
  public String login(@Valid User user)
  {
@@ -86,22 +96,26 @@ public class WebController {
 
     }
 
-    @GetMapping("electronics")
+    @GetMapping("electronic")
     public String electricity(){
 
         return "electronics";
     }
 
 
-     @GetMapping("/mens")
-    public String Contact(ModelMap modelMap)
+     @GetMapping("/electronics")
+    public String Contact(ModelMap Map, @RequestParam("id") String id)
     {
 
+        List<Product> products = repository.getProductwithCatId(id);
+        Map.addAttribute("products",products);
+        List<Product> categories = repository.getCategories();
 
-        List<Product> Mens = repository.productlist();
-        modelMap.addAttribute("Mens" , Mens);
+        Map.addAttribute("Categor",categories);
 
-        return "mens";
+        Map.addAttribute("repository",repository);
+
+        return "electronics";
     }
 
 
