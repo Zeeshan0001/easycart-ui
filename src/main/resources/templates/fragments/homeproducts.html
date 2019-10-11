@@ -51,7 +51,10 @@
                                             <span class="item_price" th:text="${Product.price} + '  $'" >  </span>
                                             <del>$69.71</del>
                                         </div>
-                                        <a href="#" class="item_add single-item hvr-outline-out button2">Add to cart</a>
+                                        <form th:action = "@{/checkout( iconid=${Product.iconId} ,price=${Product.price}, name=${Product.productName},quantity=${Product.inStockProducts},userid=${Product.id}  )}" method = "POST">
+
+                                        <button class="item_add single-item hvr-outline-out button2">Add to cart</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
