@@ -1,5 +1,6 @@
 package com.smart.shop;
 
+import com.smart.shop.Pojo.Cart;
 import com.smart.shop.Pojo.Dumy;
 import com.smart.shop.Pojo.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ public class Repository {
 
     @Autowired
     FClient fClient;
+    @Autowired
+    FClientCart fClientCart;
     // mens list
 
 public   ArrayList<Product> productlist(){
@@ -94,6 +97,21 @@ public   ArrayList<Product> productlist(){
         Product product= fClient.getProductWithId(id);
         return product;
     }
+
+    public int insertCart(Product product){
+        Cart cart=new Cart();
+        cart.setPrice(product.getPrice());
+        cart.setProductId(product.getId());
+        cart.setQuantity(product.getCartQuantity());
+        cart.setUserId("1");
+        return fClientCart.insertProducts(cart);
+    }
+
+    public ArrayList<Product> getCartProducts(String userId){
+        return fClientCart.getCartProducts(userId);
+    }
+
+
 
 
 

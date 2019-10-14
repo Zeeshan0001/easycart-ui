@@ -1,6 +1,7 @@
 package com.smart.shop.Controller;
 
 
+import com.smart.shop.Pojo.Cart;
 import com.smart.shop.Pojo.Product;
 import com.smart.shop.Pojo.Dumy;
 import com.smart.shop.Pojo.User;
@@ -10,10 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,10 +37,10 @@ public class WebController {
     public String index(ModelMap Map,Model model){
 
 
-        List<Product> Mens = repository.getProductwithCatId("2");
+        List<Product> Mens = repository.getProductwithCatId("10");
         Map.addAttribute("Mens" , Mens);
 
-        List<Product> women = repository.getProductwithCatId("7");
+        List<Product> women = repository.getProductwithCatId("16");
         Map.addAttribute("womenpro" , women);
 
         List<Product> prod = repository.getProductwithCatId("2");
@@ -55,25 +58,42 @@ public class WebController {
 
 
  @PostMapping("/single")
-    public String showMethod(@RequestParam(name="image" , required=false) String image,Integer price,String name, ModelMap modelmap)
+    public String showMethod(@RequestParam(name="image" , required=false) String image,Integer price,String name, ModelMap Map)
  {
 
-     System.out.println(image);
-     List<Dumy> select = Arrays.asList( new Dumy( name , 1, image
-        , 01, price,"slim fit"   ));
-
-     modelmap.addAttribute("selected",select);
+     List<Product> categories = repository.getCategories();
+     Map.addAttribute("Categor",categories);
+     Map.addAttribute("repository",repository);
+//     System.out.println(image);
+//     List<Dumy> select = Arrays.asList( new Dumy( name , 1, image
+//        , 01, price,"slim fit"   ));
+//
+//     modelmap.addAttribute("selected",select);
 
      return "single";
  }
 
     @GetMapping("/item")
-    public String showItem(@RequestParam(name="id" , required=false) String id, ModelMap modelmap)
+    public String showItem(@RequestParam(name="id", required=false) String id, ModelMap modelmap)
     {
+
+        List<Product> categories = repository.getCategories();
+        modelmap.addAttribute("Categor",categories);
+        modelmap.addAttribute("repository",repository);
         Product product=repository.getProductId(id);
 
         modelmap.addAttribute("product",product);
+        modelmap.addAttribute("productCart",new Product());
 
+        return "single";
+    }
+
+    @PostMapping("/cart")
+    public String cartForm(@ModelAttribute Product product)
+    {
+
+      System.out.println(product.getCartQuantity());
+        repository.insertCart(product);
         return "single";
     }
 
@@ -119,8 +139,20 @@ public class WebController {
     }
 
 
-    @GetMapping("checkout")
-    public String hell(){
+    @GetMapping("/checkout")
+    public String cart(ModelMap modelMap){
+
+        List<Product> categories = repository.getCategories();
+        modelMap.addAttribute("Categor",categories);
+        modelMap.addAttribute("repository",repository);
+
+        ArrayList<Product> products = repository.getCartProducts("1");
+        int totalCart=0;
+        for(Product prd:products){
+            totalCart+=prd.getCartPrice();
+        }
+        modelMap.addAttribute("products",products);
+        modelMap.addAttribute("totalCart",totalCart);
 
         return "checkout";
     }

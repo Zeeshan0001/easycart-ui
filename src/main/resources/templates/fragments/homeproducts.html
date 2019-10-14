@@ -64,16 +64,16 @@
 
 
                         <!--Womens-->
-                        <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+                        <div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1" >
 
                             <div class="col-md-3 product-men" th:each="Product:${womenpro}">
                                 <div class="men-pro-item simpleCart_shelfItem">
                                     <div class="men-thumb-item">
-                                        <img th:src="${Product.img_src}" alt="" class="pro-image-front">
-                                        <img th:src="${Product.img_src}" alt="" class="pro-image-back">
+                                        <img th:src="${Product.iconXXLarge}" alt="" class="pro-image-front">
+                                        <img th:src="${Product.iconXXLarge}" alt="" class="pro-image-back">
                                         <div class="men-cart-pro">
                                             <div class="inner-men-cart-pro">
-                                                <form th:action = "@{/single( image=${Product.img_src} ,price=${Product.price}, name=${Product.name}  )}" method = "POST">
+                                                <form th:action = "@{/single( image=${Product.iconXXLarge} ,price=${Product.price}, name=${Product.productName}  )}" method = "POST">
                                                     <button class="link-product-add-cart" type="submit" >Quick View</button>
                                                 </form>
                                             </div>
@@ -82,7 +82,7 @@
 
                                     </div>
                                     <div class="item-info-product ">
-                                        <h4><a href="single.html" th:text="${Product.name}" >Wedges</a></h4>
+                                        <h4><a href="single.html" th:text="${Product.productName}" >Wedges</a></h4>
                                         <div class="info-product-price">
                                             <span class="item_price" th:text="${Product.price}" ></span>
                                             <del>$69.71</del>

@@ -23,6 +23,25 @@ public class Product {
     String iconXXLarge;
     String promotionName;
 
+    int cartQuantity;
+    int cartPrice;
+
+    public int getCartQuantity() {
+        return cartQuantity;
+    }
+
+    public void setCartQuantity(int cartQuantity) {
+        this.cartQuantity = cartQuantity;
+    }
+
+    public int getCartPrice() {
+        return cartPrice;
+    }
+
+    public void setCartPrice(int cartPrice) {
+        this.cartPrice = cartPrice;
+    }
+
 
     public String getParentName() {
         return parentName;
